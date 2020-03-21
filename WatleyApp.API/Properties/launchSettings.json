@@ -20,10 +20,10 @@
     "WatleyApp.API": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "auth",
+      "launchUrl": "api/auth",
       "applicationUrl":"http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }

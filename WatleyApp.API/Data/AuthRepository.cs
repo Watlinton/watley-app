@@ -14,7 +14,7 @@ namespace WatleyApp.API.Data
         }
         public async Task<User> Login(string username, string password)
         {
-            var user = await _context.User.FirstOrDefaultAsync(x => x.Username == username);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
             if (user == null)
             {
                 return null;
@@ -50,7 +50,7 @@ namespace WatleyApp.API.Data
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
-            await _context.User.AddAsync(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
         }
@@ -67,7 +67,7 @@ namespace WatleyApp.API.Data
 
         public async Task<bool> UserExists(string username)
         {
-            if (await _context.User.AnyAsync(x => x.Username == username))
+            if (await _context.Users.AnyAsync(x => x.Username == username))
             {
                 return true;
             }
